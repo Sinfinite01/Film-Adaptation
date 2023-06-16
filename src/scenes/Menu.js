@@ -34,7 +34,8 @@ class Menu extends Phaser.Scene{
         menuConfig.fontFamily = 'Sans-serif'
 
         //this.add.text(game.config.width/2, game.config.height/3, 'An Endless Runner', menuConfig).setOrigin(0.5);
-    
+        
+        //text
         this.add.text(game.config.width/2, game.config.height/3 + 50, 'An Adaptaion of the Movie Directed By François Truffaut Made By Dylan Louie', menuConfig).setOrigin(0.5);
         //menuConfig.backgroundColor = '#A50B5E';
         //menuConfig.color = '#000';
@@ -54,6 +55,8 @@ class Menu extends Phaser.Scene{
     }
     
     update() {
+
+        //scene changes with key presses
         if (Phaser.Input.Keyboard.JustDown(keyONE)) {
             this.scene.start('play1Scene');    
         }
