@@ -6,6 +6,11 @@ class Play1 extends Phaser.Scene{
     preload(){
 
         this.load.setPath("./assets/")
+
+        // add bitmap text (x, y, font, text, size, align)
+        this.load.bitmapFont('permanent', 'PermanentMarker-Regular.png', 'PermanentMarker-Regular.xml')
+
+        this.load.setPath("./assets/play1/")
         
         //load images/tile sprites
         this.load.image('ground', 'groundPrototype.png')
@@ -23,8 +28,8 @@ class Play1 extends Phaser.Scene{
         this.load.audio('runSound', 'RunningAudio.mp3')
         this.load.audio('endMusic', '400BlowsEndingMusic.mp3')
 
-        // add bitmap text (x, y, font, text, size, align)
-        this.load.bitmapFont('permanent', 'PermanentMarker-Regular.png', 'PermanentMarker-Regular.xml')
+
+        
         
         // load texture atlas
         //this.load.atlas('player', './assets/player2.png', './assets/player2.json')
@@ -60,14 +65,14 @@ class Play1 extends Phaser.Scene{
         this.tree7 = this.add.sprite(game.config.width + game.config.width * 6/8, Math.random()*250, 'tree').setOrigin(0,0)
         this.tree8 = this.add.sprite(game.config.width + game.config.width * 7/8, Math.random()*250, 'tree').setOrigin(0,0)
 
-        this.tree1.setScale(this.tree1.y/250)
-        this.tree2.setScale(this.tree2.y/250)
-        this.tree3.setScale(this.tree3.y/250)
-        this.tree4.setScale(this.tree4.y/250)
-        this.tree5.setScale(this.tree5.y/250)
-        this.tree6.setScale(this.tree6.y/250)
-        this.tree7.setScale(this.tree7.y/250)
-        this.tree8.setScale(this.tree8.y/250)
+        this.tree1.setScale(this.tree1.y/250).setDepth(this.tree1.y/250 * 5 + 1)
+        this.tree2.setScale(this.tree2.y/250).setDepth(this.tree2.y/250 * 5 + 1)
+        this.tree3.setScale(this.tree3.y/250).setDepth(this.tree3.y/250 * 5 + 1)
+        this.tree4.setScale(this.tree4.y/250).setDepth(this.tree4.y/250 * 5 + 1)
+        this.tree5.setScale(this.tree5.y/250).setDepth(this.tree5.y/250 * 5 + 1)
+        this.tree6.setScale(this.tree6.y/250).setDepth(this.tree6.y/250 * 5 + 1)
+        this.tree7.setScale(this.tree7.y/250).setDepth(this.tree7.y/250 * 5 + 1)
+        this.tree8.setScale(this.tree8.y/250).setDepth(this.tree8.y/250 * 5 + 1)
 
         this.player1 = this.physics.add.sprite(game.config.width/2,395,'player')
         this.player1.body.immovable = false
@@ -140,7 +145,7 @@ class Play1 extends Phaser.Scene{
         this.clockTime = 83 //amt of seconds on the clock
         this.clockRightCounter = Math.floor(this.clockTime);
         this.addedTime = 0
-        this.scoreRight = this.add.text(896 - 150 - 50, 24, 'Time: '+ this.clockRightCounter, this.mainText).setOrigin(0.5,0.5);
+        this.scoreRight = this.add.text(896 - 150 - 50, 24, 'Time: '+ this.clockRightCounter, this.mainText).setOrigin(0.5,0.5).setDepth(10)
         this.scoreRight.align = 'left'
         this.initTime = this.time.now
         this.clockFinCounter = 0
@@ -296,35 +301,35 @@ class Play1 extends Phaser.Scene{
 
             if(this.tree1.x < 0 - this.tree1.width){
                 this.tree1.setPosition(game.config.width, Math.random()*250)
-                this.tree1.setScale(this.tree1.y/250)
+                this.tree1.setScale(this.tree1.y/250).setDepth(this.tree1.y/250 * 5 + 1)
             }
             if(this.tree2.x < 0 - this.tree2.width){
                 this.tree2.setPosition(game.config.width, Math.random()*250)
-                this.tree2.setScale(this.tree2.y/250)
+                this.tree2.setScale(this.tree2.y/250).setDepth(this.tree2.y/250 * 5 + 1)
             }
             if(this.tree3.x < 0 - this.tree3.width){
                 this.tree3.setPosition(game.config.width, Math.random()*250)
-                this.tree3.setScale(this.tree3.y/250)
+                this.tree3.setScale(this.tree3.y/250).setDepth(this.tree3.y/250 * 5 + 1)
             }
             if(this.tree4.x < 0 - this.tree4.width){
                 this.tree4.setPosition(game.config.width, Math.random()*250)
-                this.tree4.setScale(this.tree4.y/250)
+                this.tree4.setScale(this.tree4.y/250).setDepth(this.tree4.y/250 * 5 + 1)
             }
             if(this.tree5.x < 0 - this.tree5.width){
                 this.tree5.setPosition(game.config.width, Math.random()*250)
-                this.tree5.setScale(this.tree5.y/250)
+                this.tree5.setScale(this.tree5.y/250).setDepth(this.tree5.y/250 * 5 + 1)
             }
             if(this.tree6.x < 0 - this.tree6.width){
                 this.tree6.setPosition(game.config.width, Math.random()*250)
-                this.tree6.setScale(this.tree6.y/250)
+                this.tree6.setScale(this.tree6.y/250).setDepth(this.tree6.y/250 * 5 + 1)
             }
             if(this.tree7.x < 0 - this.tree7.width){
                 this.tree7.setPosition(game.config.width, Math.random()*250)
-                this.tree7.setScale(this.tree7.y/250)
+                this.tree7.setScale(this.tree7.y/250).setDepth(this.tree7.y/250 * 5 + 1)
             }
             if(this.tree8.x < 0 - this.tree8.width){
                 this.tree8.setPosition(game.config.width, Math.random()*250)
-                this.tree8.setScale(this.tree8.y/250)
+                this.tree8.setScale(this.tree8.y/250).setDepth(this.tree8.y/250 * 5 + 1)
             }
 
 
