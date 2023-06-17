@@ -8,7 +8,9 @@ class Play2 extends Phaser.Scene{
     }
 
     create(){
-
+        // define keys
+        keyM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M)
+        keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R)
     }
 
     update(){
