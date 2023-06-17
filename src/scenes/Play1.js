@@ -51,7 +51,7 @@ class Play1 extends Phaser.Scene{
         this.ground2.body.immovable = true
         this.ground2.alpha = 0
 
-        this.tree1 = this.add.sprite(game.config.width, Math.random()*300, 'tree').setOrigin(0,0)
+        this.tree1 = this.add.sprite(game.config.width, Math.random()*250, 'tree').setOrigin(0,0)
         this.tree2 = this.add.sprite(game.config.width + game.config.width * 1/8, Math.random()*250, 'tree').setOrigin(0,0)
         this.tree3 = this.add.sprite(game.config.width + game.config.width * 2/8, Math.random()*250, 'tree').setOrigin(0,0)
         this.tree4 = this.add.sprite(game.config.width + game.config.width * 3/8, Math.random()*250, 'tree').setOrigin(0,0)
@@ -89,7 +89,7 @@ class Play1 extends Phaser.Scene{
         this.sign2.body.immovable = true
         this.sign2.body.height = 75
 
-        this.signVelocity = 120
+        this.signVelocity = 160
         this.groundMovement = 3
 
         this.physics.add.collider(this.player1, this.sign2)
@@ -233,11 +233,11 @@ class Play1 extends Phaser.Scene{
 
             if(this.player1IsRunning){
                 this.ground1.tilePositionX += this.groundMovement
-                this.signVelocity = 120
+                this.signVelocity = 160
             }
             else if(this.player1isDucking){
                 this.ground1.tilePositionX += ( this.groundMovement - 0.5 )
-                this.signVelocity = 90
+                this.signVelocity = 120
             }
             //clock
             this.pauseCalled = false
@@ -251,12 +251,12 @@ class Play1 extends Phaser.Scene{
             }
             if(this.clockRightCounter <= 0){
                 if(this.clockFinCounter == 0){
+                    this.runMusic.stop()
+                    this.endMusic.play()
                     this.clockTime = 135
                     this.clockRightCounter = 135
                     this.clockFinCounter = 1
-                    this.initTime = this.time.now
-                    this.endMusic.play()
-                    this.runMusic.stop()
+                    this.initTime = this.time.now    
                 }
                 else if(this.clockFinCounter == 1){
                     this.clockRightCounter = 0
@@ -285,14 +285,14 @@ class Play1 extends Phaser.Scene{
             }
 
             //tree update/movement
-            this.tree1.x -= 1.7 * this.tree1.y/250
-            this.tree2.x -= 1.7 * this.tree1.y/250
-            this.tree3.x -= 1.7 * this.tree1.y/250
-            this.tree4.x -= 1.7 * this.tree1.y/250
-            this.tree5.x -= 1.7 * this.tree1.y/250
-            this.tree6.x -= 1.7 * this.tree1.y/250
-            this.tree7.x -= 1.7 * this.tree1.y/250
-            this.tree8.x -= 1.7 * this.tree1.y/250
+            this.tree1.x -= 1.5 * this.tree1.y/250 + 0.5
+            this.tree2.x -= 1.5 * this.tree2.y/250 + 0.5
+            this.tree3.x -= 1.5 * this.tree3.y/250 + 0.5
+            this.tree4.x -= 1.5 * this.tree4.y/250 + 0.5
+            this.tree5.x -= 1.5 * this.tree5.y/250 + 0.5
+            this.tree6.x -= 1.5 * this.tree6.y/250 + 0.5
+            this.tree7.x -= 1.5 * this.tree7.y/250 + 0.5
+            this.tree8.x -= 1.5 * this.tree8.y/250 + 0.5
 
             if(this.tree1.x < 0 - this.tree1.width){
                 this.tree1.setPosition(game.config.width, Math.random()*250)
