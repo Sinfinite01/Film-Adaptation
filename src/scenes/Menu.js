@@ -43,15 +43,17 @@ class Menu extends Phaser.Scene{
         this.add.text(game.config.width/2, game.config.height/3 + 150, '1: Scene One', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/3 + 200, '2: Scene Two', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/3 + 250, '3: Scene three', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/3 + 300, '4: Credits', menuConfig).setOrigin(0.5);
         
 
         // define keys
-        keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
-        keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
-        keyONE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ONE);
-        keyTWO = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.TWO);
-        keyTHREE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.THREE);
-
+        keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT)
+        keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT)
+        keyONE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ONE)
+        keyTWO = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.TWO)
+        keyTHREE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.THREE)
+        keyFOUR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.FOUR)
+        
     }
     
     update() {
@@ -67,6 +69,10 @@ class Menu extends Phaser.Scene{
 
         if (Phaser.Input.Keyboard.JustDown(keyTHREE)) {
             this.scene.start('play3Scene');    
+        }
+
+        if (Phaser.Input.Keyboard.JustDown(keyFOUR)) {
+            this.scene.start('creditScene');    
         }
 
         highScore = 0

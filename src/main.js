@@ -42,9 +42,9 @@ let config = {
 
 let game = new Phaser.Game(config)
 
-let tileSize = 50;
+let tileSize = 50
 
 // Reserve keyboard vars
 let keySPACE;
-let keyK, keyQ, keyW, keyE, keyR, keyG, keyLEFT, keyRIGHT, keyM, keyC, keyONE, keyTWO, keyTHREE;
+let keyK, keyQ, keyW, keyE, keyR, keyG, keyLEFT, keyRIGHT, keyM, keyC, keyONE, keyTWO, keyTHREE, keyFOUR
 let highScore = 0
