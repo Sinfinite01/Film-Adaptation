@@ -5,7 +5,7 @@ class Play1 extends Phaser.Scene{
 
     preload(){
 
-        this.load.setPath("./assets/");
+        this.load.setPath("./assets/")
         
         //load images/tile sprites
         this.load.image('ground', 'groundPrototype.png')

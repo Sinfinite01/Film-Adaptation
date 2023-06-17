@@ -4,8 +4,9 @@ class Menu extends Phaser.Scene{
     }
 
     preload(){
-        //this.load.audio('runSound', './assets/RunningAudio.mp4')
-        
+        this.load.setPath("./assets/")
+        // add bitmap text (x, y, font, text, size, align)
+        this.load.bitmapFont('permanent', 'PermanentMarker-Regular.png', 'PermanentMarker-Regular.xml')
 
     }
 
@@ -41,9 +42,9 @@ class Menu extends Phaser.Scene{
         //menuConfig.color = '#000';
 
         this.add.text(game.config.width/2, game.config.height/3 + 150, '1: Scene One', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/3 + 200, '2: Scene Two', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/3 + 250, '3: Scene three', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/3 + 300, '4: Credits', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/3 + 190, '2: Scene Two', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/3 + 230, '3: Scene three', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/3 + 270, '4: Credits', menuConfig).setOrigin(0.5);
         
 
         // define keys
