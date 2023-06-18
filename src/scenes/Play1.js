@@ -172,13 +172,13 @@ class Play1 extends Phaser.Scene{
 
         // text for end screen, loaded in through a Bitmap Font, typeface
         // add bitmap text (x, y, font, text, size, align)
-        this.finishText = this.add.bitmapText(game.config.width/2, game.config.height/2 - 30, 'permanent', 'FIN').setOrigin(0.5, 0.5)
+        this.finishText = this.add.bitmapText(game.config.width/2, game.config.height/2 - 30, 'permanent', 'FIN').setOrigin(0.5, 0.5).setDepth(20)
         this.finishText.setScale(1)
-        this.finishMenuText = this.add.bitmapText(game.config.width/2, game.config.height/2 + 110 , 'permanent', 'Press M to go back to Menu').setOrigin(0.5, 0.5)
+        this.finishMenuText = this.add.bitmapText(game.config.width/2, game.config.height/2 + 110 , 'permanent', 'Press M to go back to Menu').setOrigin(0.5, 0.5).setDepth(20)
         this.finishMenuText.setScale(0.25)
 
-        this.LoseText1 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 125, 'permanent', 'Use the Arrow Keys to Find All Movement Options').setOrigin(0.5, 0.5)
-        this.LoseText2 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 25, 'permanent', 'Press R to Restart').setOrigin(0.5, 0.5)
+        this.LoseText1 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 125, 'permanent', 'Use the Arrow Keys to Find All Movement Options').setOrigin(0.5, 0.5).setDepth(20)
+        this.LoseText2 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 25, 'permanent', 'Press R to Restart').setOrigin(0.5, 0.5).setDepth(20)
         this.LoseText1.setScale(0.15)
         this.LoseText2.setScale(0.4)
 

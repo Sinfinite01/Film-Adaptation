@@ -11,9 +11,27 @@ class Play2 extends Phaser.Scene{
         this.load.image('eyes', 'eyes.png')
         this.load.image('eyeBall', 'eyeBall2.png')
         
+        this.load.setPath("./assets/")
+        // add bitmap text (x, y, font, text, size, align)
+        this.load.bitmapFont('permanent', 'PermanentMarker-Regular.png', 'PermanentMarker-Regular.xml')
     }
 
     create(){
+        //clock
+
+        this.clockTime = 83 //amt of seconds on the clock
+        this.clockRightCounter = Math.floor(this.clockTime);
+        this.addedTime = 0
+        this.scoreRight = this.add.text(896 - 150 - 50, 24, 'Time: '+ this.clockRightCounter, 'permanent').setOrigin(0.5,0.5).setDepth(10)
+        this.scoreRight.align = 'left'
+        this.initTime = this.time.now
+        this.clockFinCounter = 0
+        this.pauseClockCounter = 0
+        this.pauseClockCounterInit = 0
+        this.firstPause = false
+        this.pauseCalled = false
+
+
         // define keys
         keyM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M)
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R)
