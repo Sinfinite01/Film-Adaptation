@@ -13,6 +13,10 @@ class Play2 extends Phaser.Scene{
 
         //adding music
         this.load.audio('bgMusic', 'The400BlowsPoliceCarAudio.mp3')
+
+
+        this.load.image('cross', 'white_cross.png')
+        
         
         //this.load.setPath("./assets/")
         // add bitmap text (x, y, font, text, size, align)
@@ -191,6 +195,41 @@ class Play2 extends Phaser.Scene{
         //audio
         //make running audio
         this.bgMusic = this.sound.add('bgMusic')
+
+        // init graphics
+        this.gfx = this.add.graphics()
+
+        // create an emitter
+        this.cryEmitter1 = this.add.particles(0, 0, 'cross', {
+            gravityY: 100,
+            speed: 50,
+            scale: { start: 0.1, end: 1 },
+            alpha: { start: 1, end: 0 },
+            // higher steps value = more time to go btwn min/max
+            lifespan: { min: 10, max: 7000, steps: 1000 }
+        })
+
+        // note: setting the emitter's initial position to 0, 0 seems critical to get .startFollow to work
+        this.cryEmitter1.startFollow(this.eyeBall1, 0, 10, false)
+
+        this.cryEmitter1.setDepth(2)
+        this.cryEmitter1.setAlpha(0)
+
+        this.cryEmitter2 = this.add.particles(0, 0, 'cross', {
+            gravityY: 100,
+            speed: 50,
+            scale: { start: 0.1, end: 1 },
+            alpha: { start: 1, end: 0 },
+            // higher steps value = more time to go btwn min/max
+            lifespan: { min: 10, max: 7000, steps: 1000 }
+        })
+
+        // note: setting the emitter's initial position to 0, 0 seems critical to get .startFollow to work
+        this.cryEmitter2.startFollow(this.eyeBall2, 0, 10, false)
+
+        this.cryEmitter2.setDepth(2)
+        this.cryEmitter2.setAlpha(0)
+
     }
 
     update(){
@@ -250,6 +289,13 @@ class Play2 extends Phaser.Scene{
                     this.eyeTweenChain4.play()
                 }
             }
+
+            if(this.cryEmitter1.alpha == 0 && this.clockRightCounter <= 55){
+                this.cryEmitter1.setAlpha(1)
+                this.cryEmitter2.setAlpha(1)
+                //this.cryEmitter1.setParticleLifespan( { min: 10, max: 7000, steps: 1000 } )
+                //this.cryEmitter2.setParticleLifespan( { min: 10, max: 7000, steps: 1000 } )
+            }
         }
 
         if(this.clockRightCounter <= 0){
@@ -265,6 +311,8 @@ class Play2 extends Phaser.Scene{
                 this.eyeBall1.x = this.background.y - 125
                 this.eyeBall2.x = this.background.y - 126
             }
+
+            this.bgMusic.stop()
 
             this.finishText.setAlpha(1)
 

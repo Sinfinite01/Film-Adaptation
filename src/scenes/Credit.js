@@ -17,9 +17,9 @@ class Credit extends Phaser.Scene{
 
         this.text2 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 100, 'permanent', 'Font: Permanent Marker - Designed by Font Diner https://fonts.google.com/specimen/Permanent+Marker').setOrigin(0.5,0.5).setScale(0.07)
 
-        this.text3 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 0, 'permanent', 'Movie Audio: The 400 Blows directed by François Truffaut').setOrigin(0.5,0.5).setScale(0.12)
+        this.text3 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 0, 'permanent', 'Movie Audio + Music: The 400 Blows directed by François Truffaut').setOrigin(0.5,0.5).setScale(0.12)
 
-        this.text3 = this.add.bitmapText(game.config.width/2, game.config.height/2 + 100, 'permanent', 'Movie Music From The 400 Blows: Trinite et Finale (From "The 400 Blows") by Jean Constantin').setOrigin(0.5,0.5).setScale(0.07)
+        this.text3 = this.add.bitmapText(game.config.width/2, game.config.height/2 + 100, 'permanent', 'Movie Music From The 400 Blows by Jean Constantin ie. : Trinite et Finale (From "The 400 Blows") ').setOrigin(0.5,0.5).setScale(0.07)
 
         this.text4 = this.add.bitmapText(game.config.width/2, game.config.height/2 + 200 , 'permanent', 'Press M to go back to Menu').setOrigin(0.5, 0.5).setScale(0.2)
     
