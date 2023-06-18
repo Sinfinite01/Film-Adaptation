@@ -22,7 +22,7 @@ class Play2 extends Phaser.Scene{
     create(){
         //clock
 
-        this.clockTime = 107 //amt of seconds on the clock
+        this.clockTime = 100 //amt of seconds on the clock
         this.clockRightCounter = Math.floor(this.clockTime);
         this.addedTime = 0
         this.scoreRight = this.add.bitmapText(896 - 150 - 50, 24, 'permanent', 'Time: '+ this.clockRightCounter).setOrigin(0.5,0.5).setDepth(10).setScale(0.2)
@@ -262,6 +262,8 @@ class Play2 extends Phaser.Scene{
             if(!this.eyeTweenChain1.isPlaying() && !this.eyeTweenChain3.isPlaying()){
                 this.eyeBall1.x = this.background.x - 55
                 this.eyeBall2.x = this.background.x + 55
+                this.eyeBall1.x = this.background.y - 125
+                this.eyeBall2.x = this.background.y - 126
             }
 
             this.finishText.setAlpha(1)
