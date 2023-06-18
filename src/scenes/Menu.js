@@ -45,6 +45,9 @@ class Menu extends Phaser.Scene{
         this.add.text(game.config.width/2, game.config.height/3 + 190, '2: Scene Two', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/3 + 230, '3: Scene three', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/3 + 270, '4: Credits', menuConfig).setOrigin(0.5);
+
+        menuConfig.fontSize = '15px'
+        this.add.text(game.config.width/2, game.config.height/3 + 320, 'The Controls for the Games are the Arrow Keys', menuConfig).setOrigin(0.5);
         
 
         // define keys

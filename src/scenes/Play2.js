@@ -237,9 +237,11 @@ class Play2 extends Phaser.Scene{
 
         //scene changes
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
+            this.bgMusic.stop()
             this.scene.restart() 
         }
         if (Phaser.Input.Keyboard.JustDown(keyM)) {
+            this.bgMusic.stop()
             this.scene.start('menuScene') 
         }
 
@@ -312,6 +314,13 @@ class Play2 extends Phaser.Scene{
                 this.eyeBall2.x = this.background.y - 126
             }
 
+            if(this.cryEmitter1.alpha == 0 && this.clockRightCounter <= 55){
+                this.cryEmitter1.setAlpha(1)
+                this.cryEmitter2.setAlpha(1)
+                //this.cryEmitter1.setParticleLifespan( { min: 10, max: 7000, steps: 1000 } )
+                //this.cryEmitter2.setParticleLifespan( { min: 10, max: 7000, steps: 1000 } )
+            }
+
             this.bgMusic.stop()
 
             this.finishText.setAlpha(1)
@@ -328,6 +337,7 @@ class Play2 extends Phaser.Scene{
             //this.scoreRight.text = 'Time: '+ this.clockRightCounter
             
             if (Phaser.Input.Keyboard.JustDown(keyM)) {
+                this.bgMusic.stop()
                 this.scene.start('menuScene') 
             }
         }
