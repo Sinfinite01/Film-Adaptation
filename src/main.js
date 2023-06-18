@@ -1,12 +1,12 @@
 /*#################################
 #   Dylan Louie
 #   List of mechanics
-#   - arcade physics 
-#   - animation using a atlas
-#   - importing a font
-#   - timer
-#   - parallax
-#   
+#   - arcade physics for the sign and jumping in scene 1
+#   - animation using a atlas in scene 1
+#   - importing a font in all scenes
+#   - timer in scene 1
+#   - parallax in Scene 1
+#   - tweens for eye movement in Scene 2
 #
 #################################*/
 
