@@ -26,40 +26,46 @@ class Play2 extends Phaser.Scene{
         this.eyeBall2 = this.add.sprite(game.config.width/2+55,game.config.height/2-125,'eyeBall').setScale(0.8).setDepth(0)
 
         // create timeline Tweens Chains to move eyes left and right
+        //eyes move left
+        //his right eye, left on screen
         this.eyeTweenChain1 = this.tweens.chain({
             targets: this.eyeBall1,
             ease: 'Bounce.easeOut',    
             paused: true,
             yoyo: true,
             tweens: [{
-                x: this.eyeBall1.x - 15,
+                x: this.background.x - 55 - 15,
                 duration: 500
                 
             },
             {
-                x: this.eyeBall1.x,
+                x: this.background.x - 55,
                 duration: 1000,
                 //ease: 'Sine.easeOut'    // note that this will supersede the timeline ease above
             }]
         })
 
+        //eyes moove left
+        //his left eye, right on screen
         this.eyeTweenChain2 = this.tweens.chain({
             targets: this.eyeBall2,
             ease: 'Bounce.easeOut',    
             paused: true,
             yoyo: true,
             tweens: [{
-                x: this.eyeBall2.x - 15,
+                x: this.background.x + 55 - 15,
                 duration: 500
                 
             },
             {
-                x: this.eyeBall2.x,
+                x: this.background.x + 55,
                 duration: 1000,
                 //ease: 'Sine.easeOut'    // note that this will supersede the timeline ease above
             }]
         })
 
+        //his left eye, right on screen
+        //eyes move right
         // create timeline
         this.eyeTweenChain3 = this.tweens.chain({
             targets: this.eyeBall1,
@@ -67,46 +73,82 @@ class Play2 extends Phaser.Scene{
             paused: true,
             yoyo: true,
             tweens: [{
-                x: this.eyeBall1.x + 15,
+                x: this.background.x - 55 + 15,
                 duration: 500
                 
             },
             {
-                x: this.eyeBall1.x,
+                x: this.background.x - 55,
                 duration: 1000,
                 //ease: 'Sine.easeOut'    // note that this will supersede the timeline ease above
             }]
         })
 
+        //eyes move right
+        //his left eye, right on screen
         this.eyeTweenChain4 = this.tweens.chain({
             targets: this.eyeBall2,
             ease: 'Bounce.easeOut',    
             paused: true,
             yoyo: true,
             tweens: [{
-                x: this.eyeBall2.x + 15,
+                x: this.background.x + 55 + 15,
                 duration: 500
                 
             },
             {
-                x: this.eyeBall2.x,
+                x: this.background.x + 55,
                 duration: 1000,
                 //ease: 'Sine.easeOut'    // note that this will supersede the timeline ease above
+            }]
+        })
+
+        this.bgChain = this.tweens.chain({
+            targets: this.background,
+            ease: 'Linear',    
+            paused: true,
+            tweens: [{
+                x: this.background.x + 30 * Math.random() - 15,
+                y: this.background.y + 30 * Math.random() - 15,
+                duration: 250*Math.random() + 100
+                
+            },
+            {
+                x: this.background.x + 30 * Math.random() - 15,
+                y: this.background.y + 30 * Math.random() - 15,
+                duration: 250*Math.random() + 100
+            },
+            {
+                x: this.background.x + 30 * Math.random() - 15,
+                y: this.background.y + 30 * Math.random() - 15,
+                duration: 250*Math.random() + 100
+            },
+            {
+                x: this.background.x + 30 * Math.random() - 15,
+                y: this.background.y + 30 * Math.random() - 15,
+                duration: 250*Math.random() + 100
+            },
+            {
+                x: this.background.x,
+                y: this.background.y,
+                duration: 250*Math.random() + 100
             }]
         })
 
         
 
         // add mouse input listener to start timeline
-        this.input.on('pointerdown', () => {
+        /*this.input.on('pointerdown', () => {
             if(!this.eyeTweenChain1.isPlaying()) {
                 this.eyeTweenChain1.restart()
                 this.eyeTweenChain2.restart()
                 this.eyeTweenChain1.play()
                 this.eyeTweenChain2.play()
             }
-        })
+        })*/
 
+        this.backgroundXHolder = this.background.x
+        this.backgroundYHolder = this.background.y
     }
 
     update(){
@@ -116,6 +158,22 @@ class Play2 extends Phaser.Scene{
         if (Phaser.Input.Keyboard.JustDown(keyM)) {
             this.scene.start('menuScene') 
         }
+
+        
+        if(!this.bgChain.isPlaying()){
+            this.bgChain.restart()
+            this.bgChain.play()
+        }
+
+        //eyes move with the car
+        this.eyeBall1.x += this.background.x - this.backgroundXHolder 
+        this.eyeBall2.x += this.background.x - this.backgroundXHolder
+        this.eyeBall1.y += this.background.y - this.backgroundYHolder 
+        this.eyeBall2.y += this.background.y - this.backgroundYHolder 
+
+        this.backgroundXHolder = this.background.x
+        this.backgroundYHolder = this.background.y
+
 
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             if(!this.eyeTweenChain1.isPlaying() && !this.eyeTweenChain3.isPlaying()) {
