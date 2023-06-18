@@ -25,6 +25,7 @@ class Play1 extends Phaser.Scene{
         // load texture atlas
         this.load.atlas('player', 'AntoineDoinel.png', 'AntoineDoinel.json')
 
+        //adding music
         this.load.audio('runSound', 'RunningAudio.mp3')
         this.load.audio('endMusic', '400BlowsEndingMusic.mp3')
 
@@ -142,7 +143,7 @@ class Play1 extends Phaser.Scene{
 
         this.mainText.fontSize = 40
         this.mainText.color = '#4D5558'
-        this.clockTime = 83 //amt of seconds on the clock
+        this.clockTime = 80 //amt of seconds on the clock
         this.clockRightCounter = Math.floor(this.clockTime);
         this.addedTime = 0
         this.scoreRight = this.add.text(896 - 150 - 50, 24, 'Time: '+ this.clockRightCounter, this.mainText).setOrigin(0.5,0.5).setDepth(10)
@@ -164,7 +165,7 @@ class Play1 extends Phaser.Scene{
 
         //make running audio
         this.runMusic = this.sound.add('runSound')
-        this.runMusic.play()
+        //this.runMusic.play()
 
         this.endMusic = this.sound.add('endMusic')
 
@@ -189,11 +190,17 @@ class Play1 extends Phaser.Scene{
             this.LoseText2.setAlpha(0)
         }
 
-        
+        this.firstUpdate = false
 
     }
 
     update(){
+
+        if(!this.firstUpdate){
+            this.firstUpdate = true
+            this.initTime = this.time.now
+            this.runMusic.play()
+        }
 
         //input right = run
         if( (this.cursors.right.isDown || this.cursors.down.isDown) && this.gameOver == false){
@@ -257,14 +264,16 @@ class Play1 extends Phaser.Scene{
             if(this.clockRightCounter <= 0){
                 if(this.clockFinCounter == 0){
                     this.runMusic.stop()
-                    this.endMusic.play()
                     this.clockTime = 135
                     this.clockRightCounter = 135
                     this.clockFinCounter = 1
                     this.initTime = this.time.now    
+                    this.scoreRight.text = 'Time: '+ this.clockRightCounter
+                    this.endMusic.play()
                 }
                 else if(this.clockFinCounter == 1){
                     this.clockRightCounter = 0
+                    this.scoreRight.text = 'Time: '+ this.clockRightCounter
                     this.gameOver = true
                 }
             }
