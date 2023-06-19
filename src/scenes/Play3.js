@@ -18,6 +18,11 @@ class Play3 extends Phaser.Scene{
         this.load.image('milk8', 'milk8.png')
         this.load.image('milk9', 'milk9.png')
         this.load.image('milk10', 'milk10.png')
+
+        //adding music
+        this.load.audio('drinking', '517173__craigglenday__drinking2.wav')
+        this.load.audio('bgMusic','Les Quatre Cents Coups - Jean Constantin.mp3')
+
     }
 
     create(){
@@ -25,6 +30,7 @@ class Play3 extends Phaser.Scene{
         keyM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M)
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R)
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT)
+        keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT)
 
         this.antoine = this.add.sprite(game.config.width/2, game.config.height/2, 'drinking').setScale(0.7)
         this.milk1 = this.add.sprite(game.config.width/2 - 40, game.config.height/2, 'milk1').setScale(0.7)
@@ -51,11 +57,27 @@ class Play3 extends Phaser.Scene{
         //end timer variables to delay appearance of return to menu prompt text
         this.firstEnd = false
         this.endInit = 0
+
+        //audio
+        this.drinking1 = this.sound.add('drinking').setVolume(0.8)
+        this.bgMusic1 = this.sound.add('bgMusic').setVolume(0.6)
+
+        this.firstUpdate = true
+
     }
     update(){
+        //first update
+        if(this.firstUpdate){
+            this.firstUpdate=false
+            this.bgMusic1.play()
+        }
+
+        if(!this.bgMusic1.isPlaying){
+            this.bgMusic1.play()
+        }
         
         //detect if right was clicked
-        if (Phaser.Input.Keyboard.JustDown(keyRIGHT) && this.milk1.angle>=20) {
+        if (Phaser.Input.Keyboard.JustDown(keyLEFT) && this.milk1.angle>=20) {
             this.rightDown = true
         }
 
@@ -72,12 +94,13 @@ class Play3 extends Phaser.Scene{
                 this.initTime = this.time.now
                 this.startTime = true
                 this.rightDown = false
+                this.drinking1.play()
             }
         }
 
         //
         if(this.startTime){
-            if( (this.time.now - this.initTime)/1000 >= 5){
+            if( (this.time.now - this.initTime)/1000 >= 3.3){
                 this.timeOver = true
                 this.startTime = false
                 if(this.milkCounter < 11){
@@ -107,6 +130,7 @@ class Play3 extends Phaser.Scene{
         }
 
         if(this.gameOver){
+            this.bgMusic1.stop()
             this.finishText.setAlpha(1)
             if (this.firstEnd == false){
                 this.endInit = this.time.now
