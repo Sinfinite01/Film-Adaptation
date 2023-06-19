@@ -276,7 +276,7 @@ class Play1 extends Phaser.Scene{
                     this.scoreRight.text = 'Time: '+ this.clockRightCounter
 
                     this.musicText.setAlpha(1)
-                    this.musicTextInit = this.time.now
+                    //this.musicTextInit = this.time.now
 
                     this.endMusic.play()
                 }
@@ -285,10 +285,6 @@ class Play1 extends Phaser.Scene{
                     this.scoreRight.text = 'Time: '+ this.clockRightCounter
                     this.gameOver = true
                 }
-            }
-
-            if( this.clockFinCounter == 1 && (this.time.now - this.musicTimeInit)/1000 >= 5 ){
-                this.musicText.setAlpha(0)
             }
 
 
@@ -310,6 +306,10 @@ class Play1 extends Phaser.Scene{
             if(this.sign2.x > 0 - 50){
                 this.sign2.body.setVelocityX(-this.signVelocity-50)
                 
+            }
+
+            if(this.clockRightCounter < 132){
+                this.musicText.setAlpha(0)
             }
 
             //tree update/movement
