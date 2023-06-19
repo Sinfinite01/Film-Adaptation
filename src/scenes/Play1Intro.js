@@ -25,7 +25,7 @@ class Play1Intro extends Phaser.Scene{
         this.play2Text6 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 125 , 'permanent', 'all let him down and painted him as a criminal.').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
         this.play2Text7 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 100 , 'permanent', 'An otherwise good natured kid has been outcasted.').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
         this.play2Text8 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 75 , 'permanent', 'However is that the kids fault or the system?').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
-        this.play2Text9 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 50 , 'permanent', 'Run and be free, run and escape Antoine!').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
+        this.play2Text9 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 50 , 'permanent', 'Run, Jump, and be free. Run and escape Antoine!').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
 
         this.play2Text10 = this.add.bitmapText(game.config.width/2, game.config.height/2 + 230 , 'permanent', 'SPACE').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
     
