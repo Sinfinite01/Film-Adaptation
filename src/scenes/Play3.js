@@ -38,21 +38,35 @@ class Play3 extends Phaser.Scene{
         this.timeOver = false
 
         this.milkCounter = 1
+
+        //end screen text
+        // add bitmap text (x, y, font, text, size, align)
+        this.finishText = this.add.bitmapText(game.config.width/2, game.config.height/2 - 30, 'permanent', 'FIN').setOrigin(0.5, 0.5).setDepth(20)
+        this.finishText.setScale(1).setAlpha(0)
+        this.finishMenuText = this.add.bitmapText(game.config.width/2, game.config.height/2 + 110 , 'permanent', 'Press M to go back to Menu').setOrigin(0.5, 0.5).setDepth(20)
+        this.finishMenuText.setScale(0.25).setAlpha(0)
+
+        this.gameOver = false
+
+        //end timer variables to delay appearance of return to menu prompt text
+        this.firstEnd = false
+        this.endInit = 0
     }
     update(){
         
-
-        if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
+        //detect if right was clicked
+        if (Phaser.Input.Keyboard.JustDown(keyRIGHT) && this.milk1.angle>=20) {
             this.rightDown = true
         }
 
+        //move arm
         if(this.rightDown){
             if(this.milk1.angle >= -20){
                 this.milk1.angle -= 0.5
             }
         }
 
-
+        //milk bottle has moved to mouth
         if(this.milk1.angle <= -20){
             if(!this.startTime){
                 this.initTime = this.time.now
@@ -61,6 +75,7 @@ class Play3 extends Phaser.Scene{
             }
         }
 
+        //
         if(this.startTime){
             if( (this.time.now - this.initTime)/1000 >= 5){
                 this.timeOver = true
@@ -86,5 +101,22 @@ class Play3 extends Phaser.Scene{
         if (Phaser.Input.Keyboard.JustDown(keyM)) {
             this.scene.start('menuScene') 
         }
+
+        if(this.milk1.angle>=45 && this.milkCounter>=10){
+            this.gameOver = true
+        }
+
+        if(this.gameOver){
+            this.finishText.setAlpha(1)
+            if (this.firstEnd == false){
+                this.endInit = this.time.now
+                this.firstEnd = true
+            }
+            if( Math.floor( (this.time.now-this.endInit)/1000 )  > 3){
+                this.finishMenuText.setAlpha(1)
+            }
+        }
+
+
     }
 }
