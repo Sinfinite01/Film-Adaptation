@@ -37,7 +37,10 @@ class Menu extends Phaser.Scene{
         //this.add.text(game.config.width/2, game.config.height/3, 'An Endless Runner', menuConfig).setOrigin(0.5);
         
         //text
-        this.add.text(game.config.width/2, game.config.height/3 + 50, 'An Adaptaion of the Movie Directed By François Truffaut Made By Dylan Louie', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/3 + 50, 'An Adaptaion of the Movie Directed By François Truffaut Made By Dylan Louie', menuConfig).setOrigin(0.5)
+        menuConfig.fontSize = '14px'
+        this.add.text(game.config.width/2, game.config.height/3 + 75, 'Genre: Walking Simulator/Environmental Narrative/Interactive Experience Game', menuConfig).setOrigin(0.5);
+        menuConfig.fontSize = '20px'
         //menuConfig.backgroundColor = '#A50B5E';
         //menuConfig.color = '#000';
 
