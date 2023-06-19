@@ -155,6 +155,11 @@ class Play1 extends Phaser.Scene{
         this.firstPause = false
         this.pauseCalled = false
 
+        this.musicText = this.add.text(896 - 150 - 50, 74, '+ 135', this.mainText).setOrigin(0.5,0.5).setDepth(10)
+        this.musicText.setAlpha(0)
+        this.musicTextInit = 0
+        
+
         //end clock
         this.firstEnd = false
         this.endInit = 0
@@ -269,6 +274,10 @@ class Play1 extends Phaser.Scene{
                     this.clockFinCounter = 1
                     this.initTime = this.time.now    
                     this.scoreRight.text = 'Time: '+ this.clockRightCounter
+
+                    this.musicText.setAlpha(1)
+                    this.musicTextInit = this.time.now
+
                     this.endMusic.play()
                 }
                 else if(this.clockFinCounter == 1){
@@ -277,6 +286,11 @@ class Play1 extends Phaser.Scene{
                     this.gameOver = true
                 }
             }
+
+            if( this.clockFinCounter == 1 && (this.time.now - this.musicTimeInit)/1000 >= 5 ){
+                this.musicText.setAlpha(0)
+            }
+
 
             //spawn sign 1
             if(this.clockRightCounter == 83 - 13){ //remember 13
