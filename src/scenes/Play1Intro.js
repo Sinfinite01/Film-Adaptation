@@ -7,7 +7,7 @@ class Play1Intro extends Phaser.Scene{
         //load images
         this.load.setPath("./assets/")
         this.load.image('play1Intro1','play1Intro1.png')
-        this.load.image('play1Intro2','play1intro2.png')
+        this.load.image('play1Intro2','play1Intro2.png')
     }
 
     create(){
