@@ -24,8 +24,8 @@ class Play3Intro extends Phaser.Scene{
         this.play2Text5 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 150 , 'permanent', ' leave some milk bottles on the street.').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
         this.play2Text6 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 125 , 'permanent', 'Thirsty, hungry, and desperate Antoine ').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
         this.play2Text7 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 100 , 'permanent', 'guzzles down his stolen bottle of milk.').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
-        this.play2Text8 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 75 , 'permanent', 'I wonder what milk in such a situation taste like?').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
-        //this.play2Text9 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 50 , 'permanent', 'entire life and the entire movie one last time.').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
+        this.play2Text8 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 50 , 'permanent', 'I wonder what milk in such a situation taste like?').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
+        this.play2Text9 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 75 , 'permanent', '(Use Left Arrow Key)').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
         
         this.play2Text10 = this.add.bitmapText(game.config.width/2, game.config.height/2 + 230 , 'permanent', 'SPACE').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
     
