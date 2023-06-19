@@ -119,9 +119,11 @@ class Play3 extends Phaser.Scene{
         }
 
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
+            this.bgMusic1.stop()
             this.scene.restart() 
         }
         if (Phaser.Input.Keyboard.JustDown(keyM)) {
+            this.bgMusic1.stop()
             this.scene.start('menuScene') 
         }
 
@@ -130,7 +132,7 @@ class Play3 extends Phaser.Scene{
         }
 
         if(this.gameOver){
-            this.bgMusic1.stop()
+            
             this.finishText.setAlpha(1)
             if (this.firstEnd == false){
                 this.endInit = this.time.now
