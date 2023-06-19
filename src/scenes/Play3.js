@@ -20,7 +20,7 @@ class Play3 extends Phaser.Scene{
         this.load.image('milk10', 'milk10.png')
 
         //adding music
-        this.load.audio('drinking', '517173__craigglenday__drinking2.wav')
+        this.load.audio('drinking', '517173__craigglenday__drinking4.mp3')
         this.load.audio('bgMusic','Les Quatre Cents Coups - Jean Constantin.mp3')
 
     }
@@ -60,7 +60,7 @@ class Play3 extends Phaser.Scene{
 
         //audio
         this.drinking1 = this.sound.add('drinking').setVolume(0.8)
-        this.bgMusic1 = this.sound.add('bgMusic').setVolume(0.6)
+        this.bgMusic1 = this.sound.add('bgMusic').setVolume(0.4)
 
         this.firstUpdate = true
 
