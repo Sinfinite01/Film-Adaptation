@@ -67,15 +67,15 @@ class Menu extends Phaser.Scene{
 
         //scene changes with key presses
         if (Phaser.Input.Keyboard.JustDown(keyONE)) {
-            this.scene.start('play1Scene');    
+            this.scene.start('play3Scene');    
         }
     
         if (Phaser.Input.Keyboard.JustDown(keyTWO)) {
-            this.scene.start('play2Scene');    
+            this.scene.start('play1Scene');    
         }
 
         if (Phaser.Input.Keyboard.JustDown(keyTHREE)) {
-            this.scene.start('play3Scene');    
+            this.scene.start('play2Scene');    
         }
 
         if (Phaser.Input.Keyboard.JustDown(keyFOUR)) {
