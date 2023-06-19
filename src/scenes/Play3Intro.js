@@ -41,7 +41,7 @@ class Play3Intro extends Phaser.Scene{
             this.scene.start('menuScene') 
         }
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
-            this.scene.start('play1Scene') 
+            this.scene.start('play3Scene') 
         }
     }
 }
