@@ -21,7 +21,7 @@ class Play3 extends Phaser.Scene{
 
         //adding music
         this.load.audio('drinking', '517173__craigglenday__drinking4.mp3')
-        this.load.audio('bgMusic','Les Quatre Cents Coups - Jean Constantin.mp3')
+        this.load.audio('bgMusic2','Les Quatre Cents Coups - Jean Constantin.mp3')
 
     }
 
@@ -60,7 +60,7 @@ class Play3 extends Phaser.Scene{
 
         //audio
         this.drinking1 = this.sound.add('drinking').setVolume(0.8)
-        this.bgMusic1 = this.sound.add('bgMusic').setVolume(0.4)
+        this.bgMusic2 = this.sound.add('bgMusic2').setVolume(0.4)
 
         this.firstUpdate = true
 
@@ -69,11 +69,11 @@ class Play3 extends Phaser.Scene{
         //first update
         if(this.firstUpdate){
             this.firstUpdate=false
-            this.bgMusic1.play()
+            this.bgMusic2.play()
         }
 
-        if(!this.bgMusic1.isPlaying){
-            this.bgMusic1.play()
+        if(!this.bgMusic2.isPlaying){
+            this.bgMusic2.play()
         }
         
         //detect if right was clicked
@@ -119,11 +119,11 @@ class Play3 extends Phaser.Scene{
         }
 
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
-            this.bgMusic1.stop()
+            this.bgMusic2.stop()
             this.scene.restart() 
         }
         if (Phaser.Input.Keyboard.JustDown(keyM)) {
-            this.bgMusic1.stop()
+            this.bgMusic2.stop()
             this.scene.start('menuScene') 
         }
 
