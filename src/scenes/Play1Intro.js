@@ -28,9 +28,10 @@ class Play1Intro extends Phaser.Scene{
         this.play2Text9 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 50 , 'permanent', 'Run, Jump, and be free. Run and escape Antoine!').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
 
         this.play2Text10 = this.add.bitmapText(game.config.width/2, game.config.height/2 + 230 , 'permanent', 'SPACE').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
+        this.play2Text11 = this.add.bitmapText(game.config.width/2, game.config.height/2 + 195 , 'permanent', '(Use Up+Down+Right Arrow Keys)').setOrigin(0.5, 0.5).setDepth(20).setScale(0.125)
     
-        this.play2IntroImage1 = this.add.sprite(game.config.width/3*1,game.config.height/2+100,'play1Intro1').setScale(0.155)
-        this.play2IntroImage2 = this.add.sprite(game.config.width/3*2,game.config.height/2+100,'play1Intro2').setScale(0.19)
+        this.play2IntroImage1 = this.add.sprite(game.config.width/3*1,game.config.height/2+80,'play1Intro1').setScale(0.155)
+        this.play2IntroImage2 = this.add.sprite(game.config.width/3*2,game.config.height/2+80,'play1Intro2').setScale(0.19)
     }
 
     update(){
