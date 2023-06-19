@@ -7,8 +7,8 @@
 #   - timer in scene 1
 #   - parallax in Scene 1
 #   - tweens for eye movement in Scene 2
-#   - particles for crying, scene 2
-#
+#   - particles for crying, scene
+#   - audio
 #################################*/
 
 let config = {
