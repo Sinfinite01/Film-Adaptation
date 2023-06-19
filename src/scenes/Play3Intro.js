@@ -11,6 +11,7 @@ class Play3Intro extends Phaser.Scene{
         // define keys
         keyM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M)
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R)
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
     }
 
     update(){
@@ -19,6 +20,9 @@ class Play3Intro extends Phaser.Scene{
         }
         if (Phaser.Input.Keyboard.JustDown(keyM)) {
             this.scene.start('menuScene') 
+        }
+        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
+            this.scene.start('play1Scene') 
         }
     }
 }

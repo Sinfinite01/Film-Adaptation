@@ -38,7 +38,7 @@ let config = {
         //autoCenter: Phaser.Scale.VERTICALLY,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [ Menu, Play1, Play2, Play3, Credit, Load ]
+    scene: [ Menu, Play1, Play2, Play3, Credit, Load, Play1Intro, Play2Intro, Play3Intro ]
 }
 
 let game = new Phaser.Game(config)
