@@ -307,11 +307,13 @@ class Play2 extends Phaser.Scene{
         }
 
         if(this.gameOver){
+            this.clockRightCounter = 0
+
             if(!this.eyeTweenChain1.isPlaying() && !this.eyeTweenChain3.isPlaying()){
                 this.eyeBall1.x = this.background.x - 55
                 this.eyeBall2.x = this.background.x + 55
-                this.eyeBall1.x = this.background.y - 125
-                this.eyeBall2.x = this.background.y - 126
+                this.eyeBall1.y = this.background.y - 125
+                this.eyeBall2.y = this.background.y - 126
             }
 
             if(this.cryEmitter1.alpha == 0 && this.clockRightCounter <= 55){
