@@ -24,7 +24,7 @@ class Play2Intro extends Phaser.Scene{
         this.play2Text4 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 175 , 'permanent', 'running away from home and school, plagiarism,').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
         this.play2Text5 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 150 , 'permanent', 'etc. They decide to turn him into the police and').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
         this.play2Text6 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 125 , 'permanent', 'have him sent off to a Juvenile detention center.').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
-        this.play2Text7 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 100 , 'permanent', 'Control his eyes (with arrow keys) as he is sent').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
+        this.play2Text7 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 100 , 'permanent', 'Control his eyes (with L&R arrow keys) as he is sent').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
         this.play2Text8 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 75 , 'permanent', ' off in a cop car and looking at the city he has been').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
         this.play2Text9 = this.add.bitmapText(game.config.width/2, game.config.height/2 - 50 , 'permanent', ' in his entire life and the entire movie one last time.').setOrigin(0.5, 0.5).setDepth(20).setScale(0.15)
         
